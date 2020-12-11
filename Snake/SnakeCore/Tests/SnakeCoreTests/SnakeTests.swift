@@ -9,29 +9,39 @@
 
 import XCTest
 import SnakeCore
-class GameViewModel: Drawer {
-    func drawApple(_: Point) {
-        
-    }
-    
-    func drawSnake(_: Point) {
-        
-    }
-    
-    func drawClean(_: Point) {
-        
-    }
-}
 
 class SnakeTests: XCTestCase {
 
-    func test() throws {
+    func testInitMakeBoardSquare() throws {
+        let (sut, _) = makeSUT(tc: 5)
+        XCTAssert(sut.board.allSatisfy{$0.count == 5})
         
     }
     // MARK: - Helper
-    private func makeSUT(tc: Int = 20) -> (GameViewModel, Game) {
-        let drawer = GameViewModel()
+    private func makeSUT(tc: Int = 20) -> (GameViewModelSpy, Game) {
+        let drawer = GameViewModelSpy(tc: tc)
         let game = Game(tc: tc, drawer: drawer)
         return (drawer, game)
     }
+    class GameViewModelSpy: Drawer {
+        internal init(tc: Int) {
+            let level = Array(repeating: Node.none, count: tc)
+            board = Array(repeating: level, count: tc)
+        }
+        
+        enum Node {case none, apple, snake}
+        var board: [[Node]]
+        func drawApple(_: Point) {
+            
+        }
+        
+        func drawSnake(_: Point) {
+            
+        }
+        
+        func drawClean(_: Point) {
+            
+        }
+    }
+
 }

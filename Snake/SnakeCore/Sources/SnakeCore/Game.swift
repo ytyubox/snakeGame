@@ -8,7 +8,7 @@
 
 
 import Foundation
-struct Point {
+public struct Point {
     internal init(x: Int, y: Int) {
         self.x = x
         self.y = y
@@ -17,20 +17,20 @@ struct Point {
     var x,y: Int
 }
 
-protocol Drawer {
+public protocol Drawer {
     func drawApple(_: Point)
     func drawSnake(_: Point)
     func drawClean(_: Point)
 }
-class Game {
-    internal init(tc: Int, drawer: Drawer?) {
+public class Game {
+    public init(tc: Int, drawer: Drawer?) {
         self.tc = tc
         self.drawer = drawer
     }
     
     var drawer: Drawer?
     let time = 1000/15
-    @Published var commondInput = ""
+    var commondInput = ""
     var px = 10
     var py = 10
     var gs = 20

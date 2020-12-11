@@ -11,7 +11,6 @@
 		A705529F25835DD700904C03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A705529E25835DD700904C03 /* ContentView.swift */; };
 		A70552A125835DD900904C03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A70552A025835DD900904C03 /* Assets.xcassets */; };
 		A70552A425835DD900904C03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A70552A325835DD900904C03 /* Preview Assets.xcassets */; };
-		A70552AD25835F1600904C03 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70552AC25835F1600904C03 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +20,7 @@
 		A70552A025835DD900904C03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A70552A325835DD900904C03 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A70552A525835DD900904C03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A70552AC25835F1600904C03 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A7CE83E925837A5300F99FF8 /* SnakeCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SnakeCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +37,7 @@
 		A705529025835DD600904C03 = {
 			isa = PBXGroup;
 			children = (
+				A7CE83E925837A5300F99FF8 /* SnakeCore */,
 				A705529B25835DD700904C03 /* Snake */,
 				A705529A25835DD700904C03 /* Products */,
 			);
@@ -56,7 +56,6 @@
 			children = (
 				A705529C25835DD700904C03 /* SnakeApp.swift */,
 				A705529E25835DD700904C03 /* ContentView.swift */,
-				A70552AC25835F1600904C03 /* Game.swift */,
 				A70552A025835DD900904C03 /* Assets.xcassets */,
 				A70552A525835DD900904C03 /* Info.plist */,
 				A70552A225835DD900904C03 /* Preview Content */,
@@ -142,7 +141,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A705529F25835DD700904C03 /* ContentView.swift in Sources */,
-				A70552AD25835F1600904C03 /* Game.swift in Sources */,
 				A705529D25835DD700904C03 /* SnakeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

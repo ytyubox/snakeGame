@@ -41,6 +41,7 @@ public class Game {
     var yv = 0
     var trail = [Point]()
     var tail   = 5
+    
     func gameLoop() {
         px+=xv;
         py+=yv;
@@ -57,14 +58,15 @@ public class Game {
             py = 0;
         }
         for point in trail {
-            drawer?.drawSnake(point)
+            drawSnake(point)
             if(point.x==px && point.y==py) {
                 tail = 5
             }
         }
         trail.append(Point(x: px, y: py))
         while (trail.count>tail) {
-            trail.removeFirst()
+            let p = trail.removeFirst()
+            drawClean(p)
         }
         
         if(ax==px && ay==py) {
@@ -73,8 +75,22 @@ public class Game {
             ay=Int.random(in: 0..<tc)
         }
         let apple = Point(x: ax, y: ay)
+        drawApple(apple)
+    }
+    
+    func drawSnake(_ point: Point) {
+        drawer?.drawSnake(point)
+    }
+    
+     func drawApple(_ apple: Point) {
         drawer?.drawApple(apple)
     }
+    
+    func drawClean(_ p: Point) {
+        drawer?.drawClean(p)
+    }
+    
+    
     func keyPush(_ c: Character) {
         switch(c) {
             case "4":

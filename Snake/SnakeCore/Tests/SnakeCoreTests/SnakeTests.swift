@@ -13,9 +13,16 @@ import XCTest
 class SnakeTests: XCTestCase {
 
     func testInitMakeBoardSquare() throws {
-        let (sut, _) = makeSUT(tc: 5)
-        XCTAssert(sut.board.allSatisfy{$0.count == 5})
+        let tc = 15
+        let (sut, _) = makeSUT(tc: tc)
+        XCTAssert(sut.board.allSatisfy{$0.count == tc})
     }
+    
+    func testInitWillThrowIfSizeLessThan15() {
+        XCTAssertThrowsError(try GameViewModelSpy(tc: 14))
+        XCTAssertNoThrow(try GameViewModelSpy(tc: 15))
+    }
+    
     func testGameDrawCleanWillHaveTheColumnNone() throws {
         let (sut, game) = makeSUT()
         let point = Point(x: 10, y: 10)
@@ -38,12 +45,17 @@ class SnakeTests: XCTestCase {
     
     // MARK: - Helper
     private func makeSUT(tc: Int = 20) -> (GameViewModelSpy, Game) {
-        let drawer = GameViewModelSpy(tc: tc)
+
+        let drawer = try! GameViewModelSpy(tc: tc)
         let game = Game(tc: tc, drawer: drawer)
         return (drawer, game)
     }
     class GameViewModelSpy: Drawer {
-        internal init(tc: Int) {
+        enum GameError: Error{
+            case tooSmall
+        }
+        internal init(tc: Int) throws {
+            guard tc >= 15 else {throw GameError.tooSmall}
             let level = Array(repeating: Node.none, count: tc)
             board = Array(repeating: level, count: tc)
         }
